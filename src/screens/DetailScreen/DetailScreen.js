@@ -10,7 +10,7 @@ import {
 
 const DetailScreen = ({route}) => {
   const {original_title, overview, poster_path, vote_average} =
-    route.params.items;
+    route.params.movies;
 
   return (
     <SafeAreaView style={styles.container}>

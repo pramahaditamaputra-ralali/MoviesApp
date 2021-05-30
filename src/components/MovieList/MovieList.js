@@ -11,29 +11,19 @@ const MovieList = ({movies, getMovies, page, setResetPage}) => {
   const goDetailMovie = index => {
     return navigation.navigate('DetailScreen', {
       name: movies[index].original_title,
-      items: movies[index],
+      movies: movies[index],
     });
   };
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
-    try {
-      console.log('Do Refresh');
-      setResetPage(1);
-      getMovies(page);
-      setRefreshing(false);
-    } catch (error) {
-      console.error(error);
-    }
+    setResetPage(1);
+    getMovies(page);
+    setRefreshing(false);
   }, [refreshing]);
 
   const onFetchNewData = () => {
-    try {
-      console.log('Fetch New Data');
-      getMovies(page);
-    } catch (error) {
-      console.error(error);
-    }
+    getMovies(page);
   };
 
   return (
@@ -46,9 +36,9 @@ const MovieList = ({movies, getMovies, page, setResetPage}) => {
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }
       data={movies}
-      keyExtractor={movie => `${movie.id}`}
+      keyExtractor={movie => `${movie.id}-${movie.original_title}`}
       onEndReached={onFetchNewData}
-      onEndReachedThreshold={0.1}
+      onEndReachedThreshold={0}
       renderItem={({item, index}) => {
         return (
           <MovieItem
