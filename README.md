@@ -1,13 +1,16 @@
 <b> #Task Movies App ( React Native App ) </b>
 
 <b> #Stack List </b>
+
 1. React-Native 0.64
 2. React Navigation 5
 3. Axios
 4. RematchJS
 5. Redux
-  
+6. Reactotron Setup
+
 <b> #Task List </b>
+
 1. Show List Movies on Main Screen ( Done )
 2. Show Detail Movies on Detail Screen ( Done )
 3. Implement Redux with RematchJS ( Done )
@@ -18,6 +21,7 @@
 https://developers.themoviedb.org/4/getting-started
 
 <b> #How to Install </b>
+
 1. Run yarn / yarn install
 2. Run pod install on ios directory
 3. Run npx react-native run-android ( for android ) / run-ios ( for ios )
