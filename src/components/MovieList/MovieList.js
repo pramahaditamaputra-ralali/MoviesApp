@@ -27,14 +27,14 @@ const MovieList = ({movies, getMovies, page, setResetPage}) => {
     }
   }, [refreshing]);
 
-  const onFetchNewData = useCallback(async () => {
+  const onFetchNewData = () => {
     try {
       console.log('Fetch New Data');
       getMovies(page);
     } catch (error) {
       console.error(error);
     }
-  }, [page]);
+  };
 
   return (
     <FlatList
