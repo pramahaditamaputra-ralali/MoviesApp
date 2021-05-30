@@ -14,6 +14,9 @@
 4. Infinite Scroll to fetch new List Movies ( Done )
 5. Pull to Refresh to Reset List Movies ( Done )
 
+<b> #API For Movies </b>
+https://developers.themoviedb.org/4/getting-started
+
 <b> #How to Install </b>
 1. Run yarn / yarn install
 2. Run pod install on ios directory
