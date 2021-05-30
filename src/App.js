@@ -8,7 +8,7 @@ import {StatusBar} from 'react-native';
 const App = () => {
   return (
     <Provider store={store}>
-      <StatusBar barStyle="dark-content" hidden={false} translucent={true} />
+      <StatusBar barStyle="light-content" hidden={false} translucent={true} />
       <NavigationContainer>
         <AppNavigator />
       </NavigationContainer>

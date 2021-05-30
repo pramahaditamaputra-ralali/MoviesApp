@@ -39,6 +39,7 @@ const MovieList = ({items, getMovies, page, setResetPage}) => {
 
   return (
     <FlatList
+      contentContainerStyle={styles.container}
       numColumns={2}
       horizontal={false}
       showsVerticalScrollIndicator={false}
@@ -65,7 +66,7 @@ const MovieList = ({items, getMovies, page, setResetPage}) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({container: {paddingTop: 25}});
 
 const mapState = state => ({
   movies: state.movies.movies,

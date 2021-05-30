@@ -14,7 +14,10 @@ const DetailScreen = ({route}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.container}>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        style={styles.container}>
         <Image
           style={styles.movieCoverImg}
           source={{uri: `https://image.tmdb.org/t/p/w500/${poster_path}`}}
