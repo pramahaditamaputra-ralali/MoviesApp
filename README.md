@@ -1,4 +1,4 @@
-<b> #Task From Mas Bobby - Movies App ( React Native App ) </b>
+<b> #Task Movies App ( React Native App ) </b>
 
 <b> #Stack List </b>
 1. React-Native 0.64
