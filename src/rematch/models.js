@@ -3,13 +3,13 @@ import instance from './../api/instance';
 export const movies = {
   state: {movies: [], page: 1},
   reducers: {
-    SET_MOVIES: (state, payload) => {
-      return {...state, movies: [...state.movies, ...payload]};
+    SET_MOVIES: (prevState, payload) => {
+      return {...prevState, movies: [...prevState.movies, ...payload]};
     },
-    SET_INCREMENT_PAGE: (state, payload) => {
-      return {...state, page: (state.page += payload)};
+    SET_INCREMENT_PAGE: (prevState, payload) => {
+      return {...prevState, page: (prevState.page += payload)};
     },
-    SET_RESET_PAGE: (state, payload) => {
+    SET_RESET_PAGE: (prevState, payload) => {
       return {movies: [], page: payload};
     },
   },
