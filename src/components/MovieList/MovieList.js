@@ -3,16 +3,15 @@ import {useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
 import {FlatList, RefreshControl, StyleSheet} from 'react-native';
 import MovieItem from '../MovieItem/MovieItem';
-import {connect} from 'react-redux';
 
-const MovieList = ({items, getMovies, page, setResetPage}) => {
+const MovieList = ({movies, getMovies, page, setResetPage}) => {
   const navigation = useNavigation();
   const [refreshing, setRefreshing] = useState(false);
 
   const goDetailMovie = index => {
     return navigation.navigate('DetailScreen', {
-      name: items[index].original_title,
-      items: items[index],
+      name: movies[index].original_title,
+      items: movies[index],
     });
   };
 
@@ -46,8 +45,8 @@ const MovieList = ({items, getMovies, page, setResetPage}) => {
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }
-      data={items}
-      keyExtractor={item => `${item.id}`}
+      data={movies}
+      keyExtractor={movie => `${movie.id}`}
       onEndReached={onFetchNewData}
       onEndReachedThreshold={0.1}
       renderItem={({item, index}) => {
@@ -68,14 +67,4 @@ const MovieList = ({items, getMovies, page, setResetPage}) => {
 
 const styles = StyleSheet.create({container: {paddingTop: 25}});
 
-const mapState = state => ({
-  movies: state.movies.movies,
-  page: state.movies.page,
-});
-
-const mapDispatch = dispatch => ({
-  getMovies: dispatch.movies.getMovies,
-  setResetPage: dispatch.movies.SET_RESET_PAGE,
-});
-
-export default connect(mapState, mapDispatch)(MovieList);
+export default MovieList;

@@ -4,14 +4,19 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 import MovieList from '../../components/MovieList/MovieList';
 
-const MainScreen = ({movies, getMovies, page}) => {
+const MainScreen = ({movies, getMovies, page, setResetPage}) => {
   useEffect(() => {
     getMovies(page);
   }, []);
 
   return (
     <SafeAreaView style={styles.container}>
-      <MovieList items={movies} />
+      <MovieList
+        movies={movies}
+        getMovies={getMovies}
+        page={page}
+        setResetPage={setResetPage}
+      />
     </SafeAreaView>
   );
 };
@@ -27,6 +32,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   getMovies: dispatch.movies.getMovies,
+  setResetPage: dispatch.movies.SET_RESET_PAGE,
 });
 
 export default connect(mapState, mapDispatch)(MainScreen);
