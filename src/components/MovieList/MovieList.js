@@ -26,6 +26,19 @@ const MovieList = ({movies, getMovies, page, setResetPage}) => {
     getMovies(page);
   };
 
+  const renderMovieItem = ({ item, index }) => {
+    return (
+      <MovieItem
+          title={item.original_title}
+          rating={item.vote_average}
+          onPress={() => {
+            goDetailMovie(index);
+          }}
+          imgSource={item.poster_path}
+      />
+    );
+  }
+
   return (
     <FlatList
       contentContainerStyle={styles.container}
@@ -39,18 +52,7 @@ const MovieList = ({movies, getMovies, page, setResetPage}) => {
       keyExtractor={movie => `${movie.id}-${movie.original_title}`}
       onEndReached={onFetchNewData}
       onEndReachedThreshold={0}
-      renderItem={({item, index}) => {
-        return (
-          <MovieItem
-            title={item.original_title}
-            rating={item.vote_average}
-            onPress={() => {
-              goDetailMovie(index);
-            }}
-            imgSource={item.poster_path}
-          />
-        );
-      }}
+      renderItem={renderMovieItem}
     />
   );
 };

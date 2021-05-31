@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-const MovieItem = ({title, onPress, imgSource}) => {
+const MovieItem = ({ title, onPress, imgSource }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image
@@ -10,7 +10,6 @@ const MovieItem = ({title, onPress, imgSource}) => {
           uri: `https://image.tmdb.org/t/p/w500/${imgSource}`,
         }}
       />
-
       <View style={styles.movieInfoContainer}>
         <View style={styles.movieTextInfo}>
           <Text>{title}</Text>
@@ -46,4 +45,4 @@ const styles = StyleSheet.create({
   movieTextInfo: {},
 });
 
-export default MovieItem;
+export default React.Memo(MovieItem);

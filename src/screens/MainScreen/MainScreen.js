@@ -1,13 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 import MovieList from '../../components/MovieList/MovieList';
+import {useNavigation} from '@react-navigation/native';
 
 const MainScreen = ({movies, getMovies, page, setResetPage}) => {
   useEffect(() => {
     getMovies(page);
   }, []);
+
+  const navigation = useNavigation();
+  const [refreshing, setRefreshing] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -22,7 +26,9 @@ const MainScreen = ({movies, getMovies, page, setResetPage}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {backgroundColor: '#FFFFFF'},
+  container: {
+    backgroundColor: '#FFFFFF'
+  },
 });
 
 const mapState = state => ({

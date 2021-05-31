@@ -5,12 +5,11 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  View,
+  View
 } from 'react-native';
 
 const DetailScreen = ({route}) => {
-  const {original_title, overview, poster_path, vote_average} =
-    route.params.movies;
+  const {original_title, overview, poster_path, vote_average} = route.params.movies;
 
   return (
     <SafeAreaView style={styles.container}>
